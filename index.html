@@ -72,6 +72,7 @@ a{color:var(--cyan)}
   background:linear-gradient(180deg,#FFFFFF 30%,#CFE2FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .sub{font-weight:700;font-size:clamp(18px,2.1vw,24px);line-height:1.3;margin:0 0 28px}
 .hero .sub .nw{white-space:nowrap}
+@media (max-width:380px){.hero .sub .nw{white-space:normal}}
 .meta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin:0 0 30px;padding:0;list-style:none;font-size:clamp(16px,1.7vw,19px)}
 .meta li{display:flex;align-items:center;gap:10px}
 .meta svg{width:24px;height:24px;flex:none;stroke:var(--cyan)}
@@ -93,7 +94,7 @@ a{color:var(--cyan)}
 }
 
 /* sections */
-section.block{position:relative;padding-block:84px}
+section.block{position:relative;padding-block:84px;scroll-margin-top:60px}
 section.block + section.block{border-top:1px solid var(--line)}
 section.alt{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
 .sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:36px}
@@ -463,6 +464,19 @@ const CONF = {
   ]
 };
 /* ======================================== */
+
+/* Always open at the top, and move between sections without adding #program etc. to the address */
+try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (_) {}
+if (!location.hash) window.scrollTo(0, 0);
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const id = a.getAttribute("href").slice(1);
+  const el = id ? document.getElementById(id) : null;
+  if (!el && id !== "top") return;
+  e.preventDefault();
+  (el || document.body).scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+});
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
