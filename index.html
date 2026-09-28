@@ -97,8 +97,8 @@ section.block{position:relative;padding-block:84px}
 section.block + section.block{border-top:1px solid var(--line)}
 section.alt{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
 .sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:36px}
-.label{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:17px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin:0 0 10px}
-.label::before{content:"";width:28px;height:2px;background:var(--cyan);border-radius:2px}
+.label{display:flex;align-items:center;gap:14px;font-family:var(--sans);font-size:clamp(28px,3.4vw,38px);font-weight:800;letter-spacing:-.01em;line-height:1.1;color:#00C8FF;margin:0 0 10px}
+.sec-desc{margin:0;font-size:18px;color:var(--ink-2)}
 .sec-head h2{font-weight:800;font-size:clamp(28px,3.6vw,42px);line-height:1.12;margin:0;letter-spacing:-.015em;text-wrap:balance}
 .note{font-size:14px;color:var(--ink-3);margin:0}
 
@@ -106,7 +106,7 @@ section.alt{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
 .about{display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
 @media (max-width:880px){.about{grid-template-columns:1fr;gap:32px}}
 .about p{margin:0 0 16px;max-width:36em;color:var(--ink-2)}
-.themes{display:grid;gap:12px}
+.themes{display:grid;gap:12px;align-self:start;align-content:start}
 .theme{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 20px 16px}
 .theme .tag{font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
 .theme h3{font-weight:700;font-size:17px;margin:4px 0 0;line-height:1.35;text-wrap:balance}
@@ -168,6 +168,23 @@ section.alt{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
 .spk .in{font-family:var(--mono);font-size:11.5px;color:var(--cyan);margin:8px 0 0}
 .more{margin-top:28px}
 
+/* registration */
+.reg{scroll-margin-top:80px;margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0 32px;align-items:start;background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;padding:28px 30px}
+@media (max-width:760px){.reg{grid-template-columns:1fr;gap:18px;padding:22px 20px}.reg h3{margin:0}}
+.reg h3{grid-column:1 / -1;font-weight:700;font-size:20px;margin:0 0 14px;color:var(--ink)}
+.reg-side{display:grid;gap:4px;justify-items:start;align-self:center}
+.reg-side .k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan)}
+.reg-side .v{font-weight:800;font-size:30px;line-height:1.15;white-space:nowrap}
+.reg-row{display:grid;grid-template-columns:auto 1fr;align-items:stretch;gap:12px 0;justify-self:stretch}
+.reg-btnwrap{display:flex;align-items:center;justify-content:center;margin-right:-32px;padding:0 14px;min-width:0}
+@media (max-width:760px){.reg-btnwrap{margin-right:0;padding:0 0 0 20px;justify-content:flex-start}}
+@media (max-width:420px){.reg-row{grid-template-columns:1fr}.reg-btnwrap{padding:0}}
+.reg-date{display:grid;gap:4px}
+.reg-side .btn{font-size:14px;padding:6px 14px;height:48px;align-self:center;width:210px;max-width:100%;min-width:0;justify-content:center;align-items:center;text-align:center;line-height:1.3}
+.reg-main{padding-left:32px;border-left:1px solid var(--line-strong)}
+@media (max-width:760px){.reg-main{padding-left:0;border-left:0;padding-top:18px;border-top:1px solid var(--line)}}
+.reg-main p{margin:0;color:var(--ink-2);font-size:16px;max-width:40em}
+
 /* venue */
 .venue{display:grid;grid-template-columns:1fr 1fr;gap:48px}
 @media (max-width:880px){.venue{grid-template-columns:1fr;gap:36px}}
@@ -185,10 +202,14 @@ section.alt{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
 .routes .from{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);padding-top:3px}
 .routes p{margin:0;color:var(--ink-2);font-size:15px}
 
-footer{border-top:1px solid var(--line);padding-block:40px;font-size:14px;color:var(--ink-3);background:var(--bg)}
-footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-footer strong{color:var(--ink);font-weight:600}
+footer{border-top:1px solid var(--line);padding-block:48px 32px;font-size:14px;color:var(--ink-3);background:var(--bg)}
 footer p{margin:0 0 4px}
+.foot-cols{display:flex;flex-wrap:wrap;gap:28px 64px}
+.fh{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin:0 0 12px!important}
+.foot-links{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot-links a{color:var(--ink-2);text-decoration:none}
+.foot-links a:hover{color:var(--cyan)}
+.copy-line{margin:40px 0 0!important;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
 
 /* per-day colors, matched to the key visual */
 .d1,#day1{--dc:#00ACF2}
@@ -203,6 +224,7 @@ footer p{margin:0 0 4px}
 .daynav a{color:var(--dc);border-color:var(--dc)}
 .daynav a:hover{color:var(--ink);border-color:var(--dc)}
 .theme{border-top:2px solid var(--dc)}
+.about .dl{color:var(--dc);font-weight:700}
 .theme .tag{color:var(--dc)}
 </style>
 </head>
@@ -214,7 +236,7 @@ footer p{margin:0 0 4px}
       <li class="opt"><a href="#about">About</a></li>
       <li><a href="#program">Program</a></li>
       <li><a href="#speakers">Speakers</a></li>
-      <li><a href="#venue">Address</a></li>
+      <li><a href="#venue">Logistics</a></li>
     </ul>
   </div>
 </nav>
@@ -233,7 +255,7 @@ footer p{margin:0 0 4px}
       </ul>
       <div class="cta">
         <a class="btn primary" href="#program">View program</a>
-        <span class="btn" aria-disabled="true">Registration opens soon</span>
+        <span id="hero-reg"></span>
       </div>
       <p class="countdown" id="countdown"></p>
     </div>
@@ -247,12 +269,14 @@ footer p{margin:0 0 4px}
   <section class="block alt" id="about">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="label">About</p><h2>From intergovernmental systems to the digital economy</h2></div>
+        <div><p class="label" style="margin:0">About</p></div>
       </div>
       <div class="about">
         <div>
-          <p>The KDI School–World Bank Conference on Fiscal Policy is the flagship event of the knowledge partnership between the KDI School of Public Policy and Management and the World Bank. Each year the two institutions bring together government officials, academics, and World Bank specialists to compare country experience and discuss practical policy options.</p>
-          <p>This year's conference brings together about 100 participants, including World Bank experts, KDI School faculty, officials from Korean government ministries and agencies, and policy practitioners from around the world. The first day focuses on intergovernmental transfers, the second on digital assets, blockchain, and taxation, and the third is a Knowledge and Training Fair.</p>
+          <p>The KDI School–World Bank Conference on Fiscal Policy is the flagship event of the knowledge partnership between the KDI School of Public Policy and Management and the World Bank. Held annually since 2023, it brings together government officials, academics, and World Bank specialists to share the outcomes of the partnership, compare country experiences, and discuss current fiscal policy issues.</p>
+          <p><strong class="dl d1">Day 1</strong> examines how intergovernmental transfers can correct fiscal imbalances and help subnational governments deliver comparable public services while preserving incentives for local revenue mobilization, prudent borrowing, and productive investment.</p>
+          <p><strong class="dl d2">Day 2</strong> turns to digital assets, a market now worth more than US$3 trillion. Sessions cover the basics of digital assets, the use of blockchain to improve expenditure tracking and accountability, and how governments can tax digital assets as regulation catches up with innovation.</p>
+          <p><strong class="dl d3">Day 3</strong> is a Knowledge and Training Fair, where World Bank and KDI School experts present recent fiscal research and lead hands-on training for fiscal officials from developing countries on assessing potential efficiency gains in public procurement.</p>
         </div>
         <div class="themes">
           <div class="theme d1">
@@ -267,6 +291,18 @@ footer p{margin:0 0 4px}
             <span class="tag">Day 3 · Nov 6</span>
             <h3>Knowledge and Training Fair</h3>
           </div>
+        </div>
+      </div>
+      <div class="reg" id="registration">
+        <h3>Registration</h3>
+        <div class="reg-side">
+          <div class="reg-row">
+            <div class="reg-date"><span class="k">Deadline</span><span class="v">Oct 27, 2026</span></div>
+            <div class="reg-btnwrap" id="box-reg"></div>
+          </div>
+        </div>
+        <div class="reg-main">
+          <p>Registration does not guarantee participation. Registrants will be individually notified of their participation status after the registration period.</p>
         </div>
       </div>
     </div>
@@ -286,7 +322,7 @@ footer p{margin:0 0 4px}
   <section class="block alt" id="speakers">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="label">Speakers</p><h2>Speakers and moderators</h2></div>
+        <div><p class="label">Speakers</p><p class="sec-desc">Speakers and moderators</p></div>
       </div>
       <div class="speakers" id="spk"></div>
       <p class="note more">Additional speakers will be announced.</p>
@@ -296,7 +332,7 @@ footer p{margin:0 0 4px}
   <section class="block" id="venue">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="label">Address &amp; Transportation</p><h2>Getting to Sejong</h2></div>
+        <div><p class="label" style="margin:0">Logistics</p></div>
       </div>
       <div class="venue">
         <div>
@@ -322,11 +358,20 @@ footer p{margin:0 0 4px}
 
 <footer>
   <div class="wrap">
-    <div>
-      <p><strong>Contact</strong></p>
-      <p>International Cooperation Division, KDI School of Public Policy and Management</p>
-      <p>kdis-wb@kdis.ac.kr | +82 44 550 2311</p>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <p class="fh">Contact</p>
+        <p>International Cooperation Division, KDI School of Public Policy and Management</p>
+        <p>kdis-wb@kdis.ac.kr | +82 44 550 2311</p>
+      </div>
+      <div class="foot-col">
+        <p class="fh">KDI School</p>
+        <ul class="foot-links">
+          <li><a href="https://www.kdischool.ac.kr" target="_blank" rel="noopener">kdischool.ac.kr <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
     </div>
+    <p class="copy-line">© KDI School–World Bank Conference on Fiscal Policy · KDI School of Public Policy and Management</p>
   </div>
 </footer>
 
@@ -361,6 +406,7 @@ const P = {
 /* who: [key, "virtual"|"video"|null, overrideAffiliation?]  or a plain string for TBD entries */
 const CONF = {
   start: "2026-11-04T09:30:00+09:00",
+  registration: { url: "https://forms.gle/FE77GqAdh4n5Sae68", deadline: "2026-10-27" },  /* deadline = last day, Korea time */
   datesLabel: "November 4–6, 2026",
   days: [
     { id:"day1", name:"Day 1", date:"Wed, Nov 4", title:"Intergovernmental Transfers: Design, Implementation, and Practice", slots:[
@@ -431,6 +477,23 @@ document.getElementById("hero-dates").textContent = CONF.datesLabel;
   else if (diff === 1) el.innerHTML = "<strong>Tomorrow</strong>";
   else if (diff > -CONF.days.length) el.innerHTML = "<strong>Today</strong> · " + CONF.days[-diff].name;
   else el.textContent = "";
+})();
+
+/* Registration buttons: open until the end of the deadline day (KST), then closed */
+(function registration(){
+  const r = CONF.registration;
+  const kstToday = new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+  const state = !r.url ? "soon" : (kstToday <= r.deadline ? "open" : "closed");
+  const hero = document.getElementById("hero-reg"), box = document.getElementById("box-reg");
+  if (state === "open") {
+    const a = cls => `<a class="${cls}" href="${esc(r.url)}" target="_blank" rel="noopener">Register now <span aria-hidden="true">↗</span></a>`;
+    hero.outerHTML = `<a class="btn" href="#registration">Register now</a>`;
+    box.innerHTML = a("btn primary");
+  } else {
+    const label = state === "closed" ? "Registration closed" : "Registration link coming soon";
+    hero.outerHTML = `<a class="btn" href="#registration">${state === "closed" ? "Registration closed" : "Registration"}</a>`;
+    box.innerHTML = `<span class="btn" aria-disabled="true">${label}</span>`;
+  }
 })();
 
 function person(w){
